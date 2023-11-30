@@ -1,0 +1,28 @@
+{
+  "name": "advent-of-code-2023",
+  "version": "1.0.0",
+  "description": "daily solutions for the [2023 edition of Advent of Code](https://adventofcode.com/2023)",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anaisberg/advent-of-code-2023.git"
+  },
+  "keywords": [
+    "advent",
+    "of",
+    "code",
+    "2023"
+  ],
+  "author": "anais schlienger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anaisberg/advent-of-code-2023/issues"
+  },
+  "homepage": "https://github.com/anaisberg/advent-of-code-2023#readme",
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  }
+}
