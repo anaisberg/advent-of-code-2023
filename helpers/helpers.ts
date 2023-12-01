@@ -1,7 +1,10 @@
 const fs = require("fs");
 
-export const getPath = (day: string) =>
+const getPath = (day: string) =>
   `/Users/schliengeranais/Documents/FR-theodo/labs/advent-of-code-2023/day-${day}/input.txt`;
 
-export const getInputContent = (day: string) =>
-  fs.readFileSync(getPath(day), "utf-8");
+const getTestPath = (day: string) =>
+  `/Users/schliengeranais/Documents/FR-theodo/labs/advent-of-code-2023/day-${day}/test.txt`;
+
+export const getInputContent = (day: string, isTest: boolean) =>
+  fs.readFileSync(isTest ? getTestPath(day) : getPath(day), "utf-8");
