@@ -1,7 +1,7 @@
 import { getInputContent } from "../helpers";
 
 const currentDay = "02";
-const isTest = true;
+const isTest = false;
 const allContents = getInputContent(currentDay, isTest);
 
 const Cube = {
@@ -58,3 +58,29 @@ allContents.split(/\r?\n/).forEach((line: string, index: number) => {
 
 console.log("PART 1:");
 console.log(possibleGamesSum);
+
+// Part 2
+let gamePowerSum = 0;
+allContents.split(/\r?\n/).forEach((line: string, index: number) => {
+  const currentGame = { ...initialGame };
+  const rounds = line.split(": ")[1].split("; ");
+  rounds.forEach((round) => {
+    const draws = round.split(", ");
+    draws.forEach((draw) => {
+      const cubeNumber = draw.split(" ");
+      const cubeColor = cubeNumber[1] as (typeof Cube)[keyof typeof Cube];
+      const amount = cubeNumber[0];
+      if (currentGame[cubeColor] < Number(amount)) {
+        currentGame[cubeColor] = Number(amount);
+      }
+    });
+  });
+  let gamePower = 1;
+  Object.values(Cube).forEach((cube) => {
+    gamePower *= currentGame[cube];
+  });
+  gamePowerSum += gamePower;
+});
+
+console.log("PART 2:");
+console.log(gamePowerSum);
